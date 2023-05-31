@@ -21,9 +21,29 @@ where [occupation_count] is the number of occurrences of an occupation in OCCUPA
 
 --Solution
 
-CREATE TABLE OCCUPATIONS(
-    [NAME] VARCHAR(100)
+CREATE TABLE Occupations(
+    [Name] VARCHAR(20)
     , [Occupation] VARCHAR(20)
 )
 
-INSERT INTO 
+INSERT INTO Occupations
+VALUES ("Samantha", "Doctor")
+,("Julia", "Actor")
+,("Maria", "Actor")
+,("Meera", "Singer")
+,("Ashely", "Professor")
+,("Ketty", "Professor")
+,("Christeen", "Professor")
+,("Jenny", "Doctor")
+,("Jane", "Actor")
+,("Priya", "Singer")
+
+
+SELECT Name + "(" + LEFT(Occupation, 1)+")"
+FROM Occupations
+ORDER BY Name;
+
+SELECT "There are a total of " + CAST(count(Occupation) AS VARCHAR(5)) + " " + LOWER(Occupation) +"s."
+FROM Occupations
+GROUP BY Occupation
+ORDER BY count(Occupation), Occupation;
