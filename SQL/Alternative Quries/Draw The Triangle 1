@@ -1,0 +1,25 @@
+--Problem Statement
+/*
+
+P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+* * * * *
+* * * * 
+* * * 
+* * 
+*
+
+Write a query to print the pattern P(20).
+
+*/
+
+--Solution
+
+DECLARE @i INT 
+SET @i = 20
+
+WHILE @i>0
+BEGIN
+  PRINT replicate('* ',@i)
+  SET @i = @i - 1
+END
